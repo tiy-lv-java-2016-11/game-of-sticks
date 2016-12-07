@@ -3,4 +3,5 @@
  */
 public interface Playable {
     int makeChoice(int sticks);
+    String getName();
 }

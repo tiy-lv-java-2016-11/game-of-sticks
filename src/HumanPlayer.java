@@ -4,7 +4,12 @@ import java.util.Scanner;
  * Created by melmo on 12/5/16.
  */
 public class HumanPlayer implements Playable{
+    private String name;
     private Scanner input = new Scanner(System.in);
+
+    public HumanPlayer(String name) {
+        this.name = name;
+    }
 
     @Override
     public int makeChoice(int sticks) {
@@ -25,6 +30,11 @@ public class HumanPlayer implements Playable{
             System.out.println("\nPlease enter a valid number.");
             return -1;
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
 }

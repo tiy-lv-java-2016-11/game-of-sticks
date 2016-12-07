@@ -4,6 +4,15 @@ import java.util.Random;
  * Created by melmo on 12/5/16.
  */
 public class ComputerPlayer implements Playable {
+    private String name;
+
+    public ComputerPlayer(String name) {
+        this.name = name + " the AI";
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
 
     @Override
     public int makeChoice(int sticks) {
