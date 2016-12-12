@@ -1,14 +1,44 @@
+package com.theironyard.gameOfSticks;
+
 import java.util.Scanner;
 
 /**
  * Created by melmo on 12/5/16.
  */
 public class HumanPlayer implements Playable{
-    private String name;
     private Scanner input = new Scanner(System.in);
+    private String name;
+    private int record;
+    private boolean win = false;
 
     public HumanPlayer(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRecord() {
+        return record;
+    }
+
+    @Override
+    public void setRecord(int record) {
+        this.record = record;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
+
+    @Override
+    public void setWin(boolean win) {
+        this.win = win;
     }
 
     @Override
@@ -23,18 +53,14 @@ public class HumanPlayer implements Playable{
     }
 
     private int getValidInt(String str) {
-        try {
-            return Integer.parseInt(str);
-        }
-        catch (NumberFormatException e){
+        while(!input.hasNextInt()){
             System.out.println("\nPlease enter a valid number.");
-            return -1;
+            input.next();
         }
+        int num = input.nextInt();
+        input.nextLine();
+        return num;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
 
 }
